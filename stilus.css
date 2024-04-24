@@ -1,6 +1,14 @@
-#szuresEsRendezes{
-    margin: 20px;
-    display: grid;
-    grid-template-columns: 1fr 1fr 8fr;
-    gap: 20px
+#szuresEsRendezes {
+  margin: 20px;
+  display: grid;
+  grid-template-columns: 1fr 1fr 8fr;
+  gap: 20px;
+}
+.card {
+  border: 2px solid black;
+/*   margin: 10px; */
+}
+.article{
+   margin: 10px; 
+   gap: 20px;
 }
