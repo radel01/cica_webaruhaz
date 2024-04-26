@@ -18,7 +18,7 @@ export const termekekLISTA = [
     ar: 12995,
   },
   {
-    nev: "Ablakra akasztható macskafekhely",
+    nev: "Ablakra akasztható fekhely",
     leiras: "",
     kep: "kepek/butor3.png",
     kategoria: "Bútor",
@@ -36,7 +36,7 @@ export const termekekLISTA = [
     ar: 12995,
   },
   {
-    nev: "Kaktusz alakú macska kaparófa",
+    nev: "Kaktusz alakú kaparófa",
     leiras: "",
     kep: "kepek/butor5.png",
     kategoria: "Bútor",

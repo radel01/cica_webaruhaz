@@ -21,7 +21,7 @@
       <header>
         <nav class="navbar navbar-expand-sm navbar-dark bg-dark">
             <div class="container-fluid">
-                <img src="kepek/logo.png" alt="logo" style="width:40px;" class="rounded-pill"> </a>
+                <img src="kepek/logo.png" alt="logo" style="width:40px;" class="rounded-pill">
               <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mynavbar">
                 <span class="navbar-toggler-icon"></span>
                 </button>
@@ -33,14 +33,13 @@
                     <li class="nav-item">
                         <a class="nav-link" href="javascript:void(0)">Személyes adatok</a>
                     </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="javascript:void(0)">Kosár</a>
-                    </li>
                     </ul>
                 <form class="d-flex">
-                  <input class="form-control me-2" type="text">
-                  <button id="kereso" class="btn btn-dark" type="button">Keresés</button>
+                  <input class="form-control me-2" type="text" id="kereso" placeholder="Keresés">
                 </form>
+                <button id="kosar" class="btn btn-dark" type="button" data-bs-toggle="offcanvas" data-bs-target="#demo">
+                  <img src="kepek/kosar.png" alt="logo" style="width:40px;">
+                </button>
                 </div>
             </div>
         </nav>
@@ -71,6 +70,18 @@
       <article class="article container row col-md-12 justify-content-center" style="min-width:100%">
 
       </article>
+      <div class="offcanvas offcanvas-end text-bg-dark" style="width: 500px;" id="demo">
+        <div class="offcanvas-header">
+          <h1 class="offcanvas-title">Kosár</h1>
+          <button type="button" class="btn-close btn-close-white" data-bs-dismiss="offcanvas" ></button>
+        </div>
+        <div class="offcanvas-body">
+          <div class="tablazat">
+
+          </div>
+          <button class="btn btn-secondary" type="button">Vásárlás</button>
+        </div>
+      </div>
     </main>
   </body>
 </html>
