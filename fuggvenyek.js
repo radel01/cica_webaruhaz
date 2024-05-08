@@ -15,34 +15,96 @@ export function kartyaOsszeallit(termekekLISTA) {
 }
 
 export function kosarbaRak(termekekLISTA, kosarLISTA, id) {
-  let kosarItems={
-    kep:termekekLISTA[id].kep,
-    nev:termekekLISTA[id].nev,
-    ar:termekekLISTA[id].ar+" ,-Ft"
+
+  let kosarItems = {
+    kep: `<img src="${termekekLISTA[id].kep}" class="kosarKep" alt="kep" `,
+    nev: termekekLISTA[id].nev,
+    ar: termekekLISTA[id].ar + ",-Ft",
+    db:1
+  };
+  console.log(kosarItems.db)
+  let index = 0;
+  while (
+    index < kosarLISTA.length &&
+    kosarItems.nev !== kosarLISTA[index].nev
+  ) {
+    index++;
   }
-  kosarLISTA.push(kosarItems);
-  console.log(kosarLISTA);
-  console.log(id);
+  if (index < kosarLISTA.length) {
+    kosarItems.db+=1
+    console.log(kosarItems.db)
+  } else {
+    kosarItems.db = 1;
+    kosarLISTA.push(kosarItems);
+  }
+
 }
+
 
 export function kosarOsszeallit(lista) {
   console.log(lista);
-  let txt = "<table class = 'table'>";
+  let txt= "<h1>Kosár</h1>"
+  txt += "<table class = 'table'>";
   txt += "<h4>Kosár tartalma</h4>";
   txt += `<tbody>`;
+  let osszeg=0;
   lista.forEach((element, index) => {
     txt += `<tr>`;
     for (const key in element) {
-      txt += `<td>${element[key]}</td>`;
+      if (key != "db") {
+        txt += `<td class="kosarOszlop">${element[key]}</td>`;
+      }
+      if (key === "ar") {
+        osszeg += parseInt((element[key])*(element.db));
+      }
     }
-    txt += `<td> <button id = "${index}" type="button" class="torlesGomb" ><img src="kepek/kuka.png" alt="kuka" style="width: 40px" /></button></td>`;
+    txt += `<td><input type="number" id="A${index}" class="quantity" name="quantity" min="1" max="50" class="darabInput" value="${element.db}" ></td>`;
+    txt += `<td> <button id = "${index}" type="button" class="torolGomb" ><img src="kepek/kuka.png" alt="kuka" style="width: 40px" /></button></td>`;
     txt += `</tr>`;
   });
   txt += "</tbody></table>";
+  txt += `<h2 class="vegosszeg" >Végösszeg: ${osszeg} Ft</h2>`;
+  txt += `<button class="vasarlasGomb btn btn-secondary" type="button">Vásárlás</button>`
+  console.log(osszeg)
   return txt;
 }
 
 
+
 export function torol(kosarLISTA, id) {
   kosarLISTA.splice(id, 1);
+}
+
+export function adatlapOsszeallit() {
+  let osszeg=0;
+  let txt = "<form>";
+  txt += "<h4>Vásárlói adatok</h4>";
+  txt += `<input type="text" class="form-control" placeholder="Név">`
+  txt += `<input type="text" class="form-control" placeholder="E-mail">`
+  txt += `<input type="text" class="form-control" placeholder="Telefonszám">`
+  txt += "<h4>Szállítási cím</h4>";
+  txt += `<input type="text" class="form-control" placeholder="Irányítószám">`
+  txt += `<input type="text" class="form-control" placeholder="Város">`
+  txt += `<input type="text" class="form-control" placeholder="Utca, házszám">`
+  txt += `<input type="text" class="form-control" placeholder="Emelet, ajtó">`
+  txt += "<h4>Számlázási cím</h4>";
+  txt += `  <label for="cim">Ugyan az, mint a szállítási cím</label><br>
+  <input type="checkbox" id="cimCheckBox" name="cim" value="cim" checked>`
+  let cimCheckBox=$("#cimCheckBox")
+  txt+=`<div id="szamlazas"><input type="text" class="form-control" placeholder="Irányítószám">
+  <input type="text" class="form-control" placeholder="Város">
+  <input type="text" class="form-control" placeholder="Utca, házszám">
+  <input type="text" class="form-control" placeholder="Emelet, ajtó"></div>`
+  let szamlazasDiv=$("#szamlazas")
+  cimCheckBox.on("change", function(){
+    if (this.checked == true){
+      szamlazasDiv.hide()
+    }else{
+      szamlazasDiv.show()
+    }
+  })
+  txt += "</form>";
+  txt += `<h2 class="vegosszeg" >Végösszeg: ${osszeg} Ft</h2>`;
+  txt += `<button class="rendelesGomb btn btn-secondary" type="button">Rendelés leadása</button>`
+  return txt;
 }

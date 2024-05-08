@@ -19,7 +19,29 @@ aside{
   border: 2px solid black;
   width: 45%;
 }
-
+.kosarKep{
+  width: 50%;
+  min-width: 60px;
+}
+.kosarOszlop{
+  width: 40%;
+  
+}
+.darabInput{
+  width: 45px;
+}
+.vegosszeg{
+  float: right;
+}
+.vasarlasGomb, .rendelesGomb{
+  margin-top: 80px;
+}
+td{
+  vertical-align: middle;
+}
+.form-control{
+  margin-bottom: 10px;
+}
 
 @media only screen and (max-width: 766px){
   #szuresEsRendezes {
