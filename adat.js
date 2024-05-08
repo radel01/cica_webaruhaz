@@ -1,7 +1,6 @@
 export const termekekLISTA = [
   {
     nev: "Hordó alakú macskabútor",
-    leiras: "",
     kep: "kepek/butor1.png",
     kategoria: "Bútor",
     szin: "fekete",
@@ -10,7 +9,6 @@ export const termekekLISTA = [
   },
   {
     nev: "Macskabútor",
-    leiras: "",
     kep: "kepek/butor2.png",
     kategoria: "Bútor",
     szin: "bézs",
@@ -19,7 +17,6 @@ export const termekekLISTA = [
   },
   {
     nev: "Ablakra akasztható fekhely",
-    leiras: "",
     kep: "kepek/butor3.png",
     kategoria: "Bútor",
     szin: "szürke",
@@ -28,7 +25,6 @@ export const termekekLISTA = [
   },
   {
     nev: "Macska mászóka",
-    leiras: "",
     kep: "kepek/butor4.png",
     kategoria: "Bútor",
     szin: "fekete",
@@ -37,7 +33,6 @@ export const termekekLISTA = [
   },
   {
     nev: "Kaktusz alakú kaparófa",
-    leiras: "",
     kep: "kepek/butor5.png",
     kategoria: "Bútor",
     szin: "bézs",
@@ -46,7 +41,6 @@ export const termekekLISTA = [
   },
   {
     nev: "Macska fekhely",
-    leiras: "",
     kep: "kepek/butor6.png",
     kategoria: "Bútor",
     szin: "szürke",
@@ -55,7 +49,6 @@ export const termekekLISTA = [
   },
   {
     nev: "Rugós macskajáték (4db)",
-    leiras: "",
     kep: "kepek/jatek1.png",
     kategoria: "Játék",
     szin: "többszínű",
@@ -64,7 +57,6 @@ export const termekekLISTA = [
   },
   {
     nev: "Tollas játékbot",
-    leiras: "",
     kep: "kepek/jatek2.png",
     kategoria: "Játék",
     szin: "rózsaszín",
@@ -73,7 +65,6 @@ export const termekekLISTA = [
   },
   {
     nev: "Egér macskajáték",
-    leiras: "",
     kep: "kepek/jatek3.png",
     kategoria: "Játék",
     szin: "szürke",
@@ -82,7 +73,6 @@ export const termekekLISTA = [
   },
   {
     nev: "Tollas játékbot",
-    leiras: "",
     kep: "kepek/jatek4.png",
     kategoria: "Játék",
     szin: "sárga",
@@ -91,7 +81,6 @@ export const termekekLISTA = [
   },
   {
     nev: "Színes labdák (4db)",
-    leiras: "",
     kep: "kepek/jatek5.png",
     kategoria: "Játék",
     szin: "többszínű",
@@ -100,7 +89,6 @@ export const termekekLISTA = [
   },
   {
     nev: "Jutalomfalatos labdajáték",
-    leiras: "",
     kep: "kepek/jatek6.png",
     kategoria: "Játék",
     szin: "piros",
@@ -109,16 +97,14 @@ export const termekekLISTA = [
   },
   {
     nev: "Mintás nyakörv",
-    leiras: "",
     kep: "kepek/nyakorv1.png",
     kategoria: "Nyakörv",
     szin: "kék",
     méret: "S",
-    ar: 14995,
+    ar: 1495,
   },
   {
     nev: "Nyakörv csengővel",
-    leiras: "",
     kep: "kepek/nyakorv2.png",
     kategoria: "Nyakörv",
     szin: "szürke",
@@ -127,7 +113,6 @@ export const termekekLISTA = [
   },
   {
     nev: "Virágos nyakörv",
-    leiras: "",
     kep: "kepek/nyakorv3.png",
     kategoria: "Nyakörv",
     szin: "kék",
@@ -136,7 +121,6 @@ export const termekekLISTA = [
   },
   {
     nev: "Macskahám",
-    leiras: "",
     kep: "kepek/nyakorv4.png",
     kategoria: "Nyakörv",
     szin: "rózsaszín",
@@ -145,7 +129,6 @@ export const termekekLISTA = [
   },
   {
     nev: "Egyszerű nyakörv",
-    leiras: "",
     kep: "kepek/nyakorv5.png",
     kategoria: "Nyakörv",
     szin: "bézs",
@@ -154,7 +137,6 @@ export const termekekLISTA = [
   },
   {
     nev: "Egyszerű nyakörv",
-    leiras: "",
     kep: "kepek/nyakorv6.png",
     kategoria: "Nyakörv",
     szin: "kék",
@@ -163,7 +145,6 @@ export const termekekLISTA = [
   },
   {
     nev: "Öntisztító macskaalom",
-    leiras: "",
     kep: "kepek/alom1.png",
     kategoria: "Alom",
     szin: "szürke",
@@ -172,7 +153,6 @@ export const termekekLISTA = [
   },
   {
     nev: "Zárt macskaalom",
-    leiras: "",
     kep: "kepek/alom2.png",
     kategoria: "Alom",
     szin: "fekete",
@@ -181,7 +161,6 @@ export const termekekLISTA = [
   },
   {
     nev: "Öntisztító macskaalom",
-    leiras: "",
     kep: "kepek/alom3.png",
     kategoria: "Alom",
     szin: "fehér",
@@ -190,7 +169,6 @@ export const termekekLISTA = [
   },
   {
     nev: "Zárt macskaalom",
-    leiras: "",
     kep: "kepek/alom4.png",
     kategoria: "Alom",
     szin: "szürke",
@@ -199,7 +177,6 @@ export const termekekLISTA = [
   },
   {
     nev: "Öntisztító macskaalom",
-    leiras: "",
     kep: "kepek/alom5.png",
     kategoria: "Alom",
     szin: "fehér",
@@ -208,7 +185,6 @@ export const termekekLISTA = [
   },
   {
     nev: "Zárt macskaalom",
-    leiras: "",
     kep: "kepek/alom6.png",
     kategoria: "Alom",
     szin: "fehér",

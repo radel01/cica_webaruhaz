@@ -11,7 +11,7 @@
     />
     <!-- Latest compiled JavaScript -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
-    <link rel="stylesheet" href="stilus.css">
+    <link rel="stylesheet" href="stilus.css" />
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
     <script type="module" src="listaMegjelenit.js"></script>
     <title>Roszkopf Adél</title>
@@ -20,43 +20,78 @@
     <main>
       <header>
         <nav class="navbar navbar-expand-sm navbar-dark bg-dark">
-            <div class="container-fluid">
-                <img src="kepek/logo.png" alt="logo" style="width:40px;" class="rounded-pill">
-              <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mynavbar">
-                <span class="navbar-toggler-icon"></span>
-                </button>
-                <div class="collapse navbar-collapse" id="mynavbar">
-                <ul class="navbar-nav me-auto">
-                    <li class="nav-item">
-                        <a class="nav-link" href="javascript:void(0)">Termékeink</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="javascript:void(0)">Személyes adatok</a>
-                    </li>
-                    </ul>
-                <form class="d-flex">
-                  <input class="form-control me-2" type="text" id="kereso" placeholder="Keresés">
-                </form>
-                <button id="kosar" class="btn btn-dark" type="button" data-bs-toggle="offcanvas" data-bs-target="#demo">
-                  <img src="kepek/kosar.png" alt="logo" style="width:40px;">
-                </button>
-                </div>
+          <div class="container-fluid">
+            <img
+              src="kepek/logo.png"
+              alt="logo"
+              style="width: 40px"
+              class="rounded-pill"
+            />
+            <button
+              class="navbar-toggler"
+              type="button"
+              data-bs-toggle="collapse"
+              data-bs-target="#mynavbar"
+            >
+              <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="mynavbar">
+              <ul class="navbar-nav me-auto">
+                <li class="nav-item">
+                  <a class="nav-link" href="javascript:void(0)">Termékeink</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="javascript:void(0)"
+                    >Személyes adatok</a
+                  >
+                </li>
+              </ul>
+              <form class="d-flex">
+                <input
+                  class="form-control me-2"
+                  type="text"
+                  id="kereso"
+                  placeholder="Keresés"
+                />
+              </form>
+              <button
+                id="kosar"
+                class="btn btn-dark"
+                type="button"
+                data-bs-toggle="offcanvas"
+                data-bs-target="#demo"
+              >
+                <img src="kepek/kosar.png" alt="logo" style="width: 40px" />
+              </button>
             </div>
+          </div>
         </nav>
       </header>
       <div id="szuresEsRendezes">
         <div id="rendezes" class="dropdown">
-            <button type="button" class="btn btn-dark dropdown-toggle" data-bs-toggle="dropdown">
-              Rendezés
-            </button>
-            <ul class="dropdown-menu">
-              <li><a id="a-z" class="dropdown-item" href="#">A-Z</a></li>
-              <li><a id="z-a" class="dropdown-item" href="#">Z-A</a></li>
-              <li><a id="novekvo" class="dropdown-item" href="#">Ár szerint növekvő</a></li>
-              <li><a id="csokkeno" class="dropdown-item" href="#">Ár szerint csökkenő</a></li>
-            </ul>
-          </div>
-          <div id="szures" class="dropdown">
+          <button
+            type="button"
+            class="btn btn-dark dropdown-toggle"
+            data-bs-toggle="dropdown"
+          >
+            Rendezés
+          </button>
+          <ul class="dropdown-menu">
+            <li><a id="a-z" class="dropdown-item" href="#">A-Z</a></li>
+            <li><a id="z-a" class="dropdown-item" href="#">Z-A</a></li>
+            <li>
+              <a id="novekvo" class="dropdown-item" href="#"
+                >Ár szerint növekvő</a
+              >
+            </li>
+            <li>
+              <a id="csokkeno" class="dropdown-item" href="#"
+                >Ár szerint csökkenő</a
+              >
+            </li>
+          </ul>
+        </div>
+        <!-- <div id="szures" class="dropdown">
             <button type="button" class="btn btn-dark dropdown-toggle" data-bs-toggle="dropdown">
               Szűrés
             </button>
@@ -65,20 +100,27 @@
               <li><a id="szinSzerint" class="dropdown-item" href="#">Szín</a></li>
               <li><a id="meretSZerint" class="dropdown-item" href="#">Méret</a></li>
             </ul>
-          </div>
+          </div> -->
       </div>
-      <article class="article container row col-md-12 justify-content-center" style="min-width:100%">
-
-      </article>
-      <div class="offcanvas offcanvas-end text-bg-dark" style="width: 500px;" id="demo">
+      <article
+        class="article container row col-md-12 justify-content-center"
+        style="min-width: 100%"
+      ></article>
+      <div
+        class="offcanvas offcanvas-end text-bg-dark"
+        style="width: 500px"
+        id="demo"
+      >
         <div class="offcanvas-header">
           <h1 class="offcanvas-title">Kosár</h1>
-          <button type="button" class="btn-close btn-close-white" data-bs-dismiss="offcanvas" ></button>
+          <button
+            type="button"
+            class="btn-close btn-close-white"
+            data-bs-dismiss="offcanvas"
+          ></button>
         </div>
         <div class="offcanvas-body">
-          <div class="tablazat">
-
-          </div>
+          <div class="tablazat"></div>
           <button class="btn btn-secondary" type="button">Vásárlás</button>
         </div>
       </div>

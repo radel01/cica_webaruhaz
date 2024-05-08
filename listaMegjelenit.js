@@ -2,67 +2,29 @@ import { termekekLISTA } from "./adat.js";
 import { szuresNevSzerint } from "./adatKezelo.js";
 import { listaRendez } from "./adatKezelo.js";
 import { listaRendezSzam } from "./adatKezelo.js";
+import { kartyaOsszeallit, kosarOsszeallit, kosarbaRak, torol } from "./fuggvenyek.js";
 
-function kartyaOsszeallit(termekekLISTA) {
-  let txt = "";
-  for (let index = 0; index < termekekLISTA.length; index++) {
-    txt += `<div class="card col-md-3" >
-        <div class="card-body">
-        <img class="termekKep card-img-top" src="${termekekLISTA[index].kep}" alt="Card image">
-        <h4 class="termekNev card-title">${termekekLISTA[index].nev}</h4>
-        <p class="card-text">${termekekLISTA[index].leiras}</p>
-        <p class="termekAr card-text">${termekekLISTA[index].ar},-Ft</p>
-        <a href="#" class="kosarbaGomb btn btn-dark">Kosárba</a>
-        </div>
-      </div>`;
-  }
-  return txt;
-}
-
-let kosarbaGombELEM=$(".kosarbaGomb")
-let termekKepELEM=$(".termekKep")
-let termekArELEM=$(".termekAr")
-let termekNevELEM=$(".termekNev")
-
-/* let kivalasztottTermek;
-kosarbaGombELEM.on("click", function(){
-  let id=event.target.
-
-  console.log(kivalasztottTermek)
-})
-
-let kosarLISTA={};
-function kosarbaRak(obj, kosarLISTA){
-  
-  return kosarLISTA
-}
-
-function tablazatOsszeallit(kosarLISTA) {
-  let txt = "";
-  for (let index = 0; index < termekekLISTA.length; index++) {
-    txt += `<tr>
-    <td>${kosarLISTA[index]}</td>
-    <td>${kosarLISTA[index+1]}</td>
-    <td>${kosarLISTA[index+1]}</td>
-  </tr>`
-  }
-  return txt;
-} */
 
 let articleELEM = $(".article");
 let tablazatELEM = $(".tablazat")
-export function megjelenit(txt) {
-  articleELEM.html(txt);
+let kosarLISTA=[];
+
+export function megjelenit(txt, hol) {
+  hol.html(txt);
 }
-init(termekekLISTA);
-/* 
-tablazatELEM.html(tablazatOsszeallit(kosarbaRak(kosarLISTA))) */
-/* 
-init(kosarLISTA) */
-export function init(lista) {
-  megjelenit(kartyaOsszeallit(lista));
-  RendezEsemeny();
+
+init(termekekLISTA, kosarLISTA);
+
+export function init(termekekLISTA, kosarLISTA) {
+  megjelenit(kartyaOsszeallit(termekekLISTA), articleELEM);
+  kosarbaRakEsemeny(termekekLISTA)
+  torolEsemeny()
+  megjelenit(kosarOsszeallit(kosarLISTA), tablazatELEM);
 }
+
+
+RendezEsemeny();
+szuresEsemeny();
 
 function szuresEsemeny() {
   const keresoELEM = $("#kereso");
@@ -73,8 +35,7 @@ function szuresEsemeny() {
     init(SZURTLiSTA);
   });
 }
-szuresEsemeny();
-init(termekekLISTA);
+init(termekekLISTA, kosarLISTA);
 
 let irany = 1;
 function RendezEsemeny() {
@@ -97,5 +58,26 @@ function RendezEsemeny() {
   csokkenoELEM.on("click", function () {
     const lista = listaRendezSzam(termekekLISTA, irany * -1);
     init(lista);
+  });
+}
+
+
+export function kosarbaRakEsemeny(termekekLISTA){
+  let kosarbaGombELEM=$(".kosarbaGomb")
+  kosarbaGombELEM.on("click", function(event){
+    let id=event.target.id.replace("k", "")
+    kosarbaRak(termekekLISTA, kosarLISTA, id)
+    init(termekekLISTA, kosarLISTA)
+  })
+  return kosarLISTA
+}
+
+export function torolEsemeny(){
+  let torolGombELEM=$(".torlesGomb")
+  torolGombELEM.on("click", function(event){
+    let id=event.target.id
+    torol(kosarLISTA, id)
+    init(termekekLISTA, kosarLISTA)
+    console.log("gomb")
   });
 }
