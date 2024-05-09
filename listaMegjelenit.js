@@ -23,11 +23,11 @@ export function init(termekekLISTA, kosarLISTA) {
   megjelenit(kosarOsszeallit(kosarLISTA), tablazatELEM);
   torolEsemeny()
   vasarlasEsemeny()
+  RendezEsemeny();
+  szuresEsemeny();
+  darabInputEsemeny();
 }
 
-
-RendezEsemeny();
-szuresEsemeny();
 
 function szuresEsemeny() {
   const keresoELEM = $("#kereso");
@@ -73,6 +73,7 @@ export function kosarbaRakEsemeny(termekekLISTA, kosarLISTA){
     let kosarId=event.target.id.replace("A", "")
     console.log(darabELEM.value)
     kosarbaRak(termekekLISTA, kosarLISTA, id)
+/*     let osszeg=vegOsszeg(kosarLISTA); */
     init(termekekLISTA, kosarLISTA)
   })
   return kosarLISTA
@@ -83,8 +84,33 @@ export function vasarlasEsemeny(){
   vasarlasGombELEM.on("click", function(event){
     tablazatELEM.empty();
     megjelenit(adatlapOsszeallit(), tablazatELEM)
+    let cimCheckBox=$("#cimCheckBox")
+    let szamlazasDiv=$("#szamlazas")
+  cimCheckBox.on("change", function(){
+    if (this.checked == true){
+      szamlazasDiv.hide()
+    }else{
+      szamlazasDiv.show()
+    }
+  })
     rendelesEsemeny()
   })
+}
+
+export function darabInputEsemeny(){
+  let darab=$(".termekDarab")
+  darab.on("change", function(event){
+    let kosarId=event.target.id.replace("A", "")
+    console.log("darabszám változás!"+event.target[kosarId])
+  })
+}
+
+export function vegOsszeg(lista){
+  let osszeg = 0;
+  lista.forEach(element => {
+        osszeg += element.ar*element.db;
+  });
+  return osszeg;
 }
 
 export function rendelesEsemeny(){

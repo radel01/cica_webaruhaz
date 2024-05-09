@@ -16,26 +16,25 @@ export function kartyaOsszeallit(termekekLISTA) {
 
 export function kosarbaRak(termekekLISTA, kosarLISTA, id) {
 
-  let kosarItems = {
+  let kosarItem = {
     kep: `<img src="${termekekLISTA[id].kep}" class="kosarKep" alt="kep" `,
     nev: termekekLISTA[id].nev,
-    ar: termekekLISTA[id].ar + ",-Ft",
-    db:1
+    ar: termekekLISTA[id].ar
   };
-  console.log(kosarItems.db)
+  console.log(kosarItem)
   let index = 0;
   while (
     index < kosarLISTA.length &&
-    kosarItems.nev !== kosarLISTA[index].nev
+    kosarItem.nev !== kosarLISTA[index].nev
   ) {
     index++;
   }
   if (index < kosarLISTA.length) {
-    kosarItems.db+=1
-    console.log(kosarItems.db)
+    kosarLISTA[index].db+=1
+    console.log(kosarItem.db)
   } else {
-    kosarItems.db = 1;
-    kosarLISTA.push(kosarItems);
+    kosarItem.db = 1;
+    kosarLISTA.push(kosarItem);
   }
 
 }
@@ -54,16 +53,16 @@ export function kosarOsszeallit(lista) {
       if (key != "db") {
         txt += `<td class="kosarOszlop">${element[key]}</td>`;
       }
-      if (key === "ar") {
-        osszeg += parseInt((element[key])*(element.db));
-      }
+/*       if (key === "ar") {
+        osszeg += parseInt(element[key]*element.db);
+      } */
     }
-    txt += `<td><input type="number" id="A${index}" class="quantity" name="quantity" min="1" max="50" class="darabInput" value="${element.db}" ></td>`;
+    txt += `<td><input type="number" id="A${index}" class="termekDarab quantity" name="quantity" min="1" max="50" class="darabInput" value="${element.db}" ></td>`;
     txt += `<td> <button id = "${index}" type="button" class="torolGomb" ><img src="kepek/kuka.png" alt="kuka" style="width: 40px" /></button></td>`;
     txt += `</tr>`;
   });
   txt += "</tbody></table>";
-  txt += `<h2 class="vegosszeg" >Végösszeg: ${osszeg} Ft</h2>`;
+  txt += `<h2 class="vegOsszeg" >Végösszeg: ${osszeg} Ft</h2>`;
   txt += `<button class="vasarlasGomb btn btn-secondary" type="button">Vásárlás</button>`
   console.log(osszeg)
   return txt;
@@ -91,7 +90,7 @@ export function adatlapOsszeallit() {
   txt += `  <label for="cim">Ugyan az, mint a szállítási cím</label><br>
   <input type="checkbox" id="cimCheckBox" name="cim" value="cim" checked>`
   let cimCheckBox=$("#cimCheckBox")
-  txt+=`<div id="szamlazas"><input type="text" class="form-control" placeholder="Irányítószám">
+  txt+=`<div id="szamlazas" style="display:none"><input type="text" class="form-control" placeholder="Irányítószám">
   <input type="text" class="form-control" placeholder="Város">
   <input type="text" class="form-control" placeholder="Utca, házszám">
   <input type="text" class="form-control" placeholder="Emelet, ajtó"></div>`
