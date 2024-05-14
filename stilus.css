@@ -24,15 +24,13 @@ aside{
   min-width: 60px;
 }
 .kosarOszlop{
-  width: 40%;
+  width: 30%;
   
 }
 .darabInput{
   width: 45px;
 }
-.vegosszeg{
-  float: right;
-}
+
 .vasarlasGomb, .rendelesGomb{
   margin-top: 80px;
 }
@@ -42,7 +40,23 @@ td{
 .form-control{
   margin-bottom: 10px;
 }
-
+.kosarVegosszegDiv{
+  float: right;
+  display: grid;
+  grid-template-columns: 10fr 1fr 1fr;
+  text-align: right;
+}
+.vegosszegText{
+  padding-right: 15px;
+}
+.kapcsolatArticle{
+  padding-top: 50px;
+  width: 50%;
+  margin: auto;
+}
+#kapcsolat{
+  width: 100%;
+}
 @media only screen and (max-width: 766px){
   #szuresEsRendezes {
     margin: 20px;

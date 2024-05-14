@@ -8,8 +8,7 @@ import { adatlapOsszeallit, kartyaOsszeallit, kosarOsszeallit, kosarbaRak, torol
 let articleELEM = $(".article");
 let tablazatELEM = $(".tablazat")
 let kosarLISTA=[];
-
-
+let osszeg=0;
 
 export function megjelenit(txt, hol) {
   hol.html(txt);
@@ -25,7 +24,6 @@ export function init(termekekLISTA, kosarLISTA) {
   vasarlasEsemeny()
   RendezEsemeny();
   szuresEsemeny();
-  darabInputEsemeny();
 }
 
 
@@ -35,7 +33,7 @@ function szuresEsemeny() {
   keresoELEM.on("keyup", function () {
     let szurtSzoveg = keresoELEM.val();
     const SZURTLiSTA = szuresNevSzerint(termekekLISTA, szurtSzoveg);
-    init(SZURTLiSTA);
+    init(SZURTLiSTA, kosarLISTA);
   });
 }
 init(termekekLISTA, kosarLISTA);
@@ -48,19 +46,19 @@ function RendezEsemeny() {
   const csokkenoELEM = $("#csokkeno");
   azELEM.on("click", function () {
     const lista = listaRendez(termekekLISTA, irany);
-    init(lista);
+    init(termekekLISTA, kosarLISTA);
   });
   zaELEM.on("click", function () {
     const lista = listaRendez(termekekLISTA, irany * -1);
-    init(lista);
+    init(termekekLISTA, kosarLISTA);
   });
   novekvoELEM.on("click", function () {
     const lista = listaRendezSzam(termekekLISTA, irany);
-    init(lista);
+    init(termekekLISTA, kosarLISTA);
   });
   csokkenoELEM.on("click", function () {
     const lista = listaRendezSzam(termekekLISTA, irany * -1);
-    init(lista);
+    init(termekekLISTA, kosarLISTA);
   });
 }
 
@@ -70,11 +68,12 @@ export function kosarbaRakEsemeny(termekekLISTA, kosarLISTA){
   let darabELEM=$(".quantity")
   kosarbaGombELEM.on("click", function(event){
     let id=event.target.id.replace("k", "")
-    let kosarId=event.target.id.replace("A", "")
     console.log(darabELEM.value)
     kosarbaRak(termekekLISTA, kosarLISTA, id)
-/*     let osszeg=vegOsszeg(kosarLISTA); */
     init(termekekLISTA, kosarLISTA)
+    let vegOsszegElem=$(".vegOsszeg")
+    osszeg=vegOsszeg(kosarLISTA)
+    megjelenit(osszeg, vegOsszegElem)
   })
   return kosarLISTA
 }
@@ -84,6 +83,9 @@ export function vasarlasEsemeny(){
   vasarlasGombELEM.on("click", function(event){
     tablazatELEM.empty();
     megjelenit(adatlapOsszeallit(), tablazatELEM)
+    let vegOsszegElem=$(".vegOsszeg")
+    osszeg=vegOsszeg(kosarLISTA)
+    megjelenit(osszeg, vegOsszegElem)
     let cimCheckBox=$("#cimCheckBox")
     let szamlazasDiv=$("#szamlazas")
   cimCheckBox.on("change", function(){
@@ -97,27 +99,40 @@ export function vasarlasEsemeny(){
   })
 }
 
-export function darabInputEsemeny(){
-  let darab=$(".termekDarab")
-  darab.on("change", function(event){
-    let kosarId=event.target.id.replace("A", "")
-    console.log("darabszám változás!"+event.target[kosarId])
-  })
-}
-
 export function vegOsszeg(lista){
   let osszeg = 0;
+  let darab=$(".termekDarab")
   lista.forEach(element => {
-        osszeg += element.ar*element.db;
-  });
+    let darabInput=element.db;
+/*     darab.on("change", function(event){
+      let kosarId=event.target.id.replace("A", "")
+      darabInput=darab[kosarId].value;
+      if(element.db = darabInput){
+        darabInput=element.db
+      }
+    }) */
+      osszeg += parseInt(element.ar*darabInput);
+    });
   return osszeg;
 }
-
+/*     let nevInputELEM=$(".nev")
+    let emailInputELEM=$(".email")
+    let telefonInputELEM=$(".telefon")
+    let zipInputELEM=$(".zip")
+    let varosInputELEM=$(".varos")
+    let utcaInputELEM=$(".utca")
+    let hazszamInputELEM=$(".hazszam")
+    let emeletInputELEM=$(".emelet")
+    let zip2InputELEM=$(".zip2")
+    let varos2InputELEM=$(".varos2")
+    let utca2InputELEM=$(".utca2")
+    let hazszam2InputELEM=$(".hazszam2")
+    let emelet2InputELEM=$(".emelet2") */
 export function rendelesEsemeny(){
   let rendelesGombELEM=$('.rendelesGomb')
   rendelesGombELEM.on("click", function(event){
+/*     console.log(nevInputELEM.placeholder,nevInputELEM.val()) */
     window.alert("Rendelése sikeres volt!")
-    console.log(alert)
   })
 }
 

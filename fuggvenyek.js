@@ -19,7 +19,7 @@ export function kosarbaRak(termekekLISTA, kosarLISTA, id) {
   let kosarItem = {
     kep: `<img src="${termekekLISTA[id].kep}" class="kosarKep" alt="kep" `,
     nev: termekekLISTA[id].nev,
-    ar: termekekLISTA[id].ar
+    ar: termekekLISTA[id].ar, 
   };
   console.log(kosarItem)
   let index = 0;
@@ -46,7 +46,6 @@ export function kosarOsszeallit(lista) {
   txt += "<table class = 'table'>";
   txt += "<h4>Kosár tartalma</h4>";
   txt += `<tbody>`;
-  let osszeg=0;
   lista.forEach((element, index) => {
     txt += `<tr>`;
     for (const key in element) {
@@ -62,9 +61,8 @@ export function kosarOsszeallit(lista) {
     txt += `</tr>`;
   });
   txt += "</tbody></table>";
-  txt += `<h2 class="vegOsszeg" >Végösszeg: ${osszeg} Ft</h2>`;
+  txt += `<div class="kosarVegosszegDiv"><h2 class="vegosszegText">Végösszeg:</h2><h2 class="vegOsszeg" ></h2><h2>Ft</h2></div>`;
   txt += `<button class="vasarlasGomb btn btn-secondary" type="button">Vásárlás</button>`
-  console.log(osszeg)
   return txt;
 }
 
@@ -75,25 +73,24 @@ export function torol(kosarLISTA, id) {
 }
 
 export function adatlapOsszeallit() {
-  let osszeg=0;
   let txt = "<form>";
   txt += "<h4>Vásárlói adatok</h4>";
-  txt += `<input type="text" class="form-control" placeholder="Név">`
-  txt += `<input type="text" class="form-control" placeholder="E-mail">`
-  txt += `<input type="text" class="form-control" placeholder="Telefonszám">`
+  txt += `<input type="text" class="nev form-control" placeholder="Név">`
+  txt += `<input type="text" class="email form-control" placeholder="E-mail">`
+  txt += `<input type="text" class="telefon form-control" placeholder="Telefonszám">`
   txt += "<h4>Szállítási cím</h4>";
-  txt += `<input type="text" class="form-control" placeholder="Irányítószám">`
-  txt += `<input type="text" class="form-control" placeholder="Város">`
-  txt += `<input type="text" class="form-control" placeholder="Utca, házszám">`
-  txt += `<input type="text" class="form-control" placeholder="Emelet, ajtó">`
+  txt += `<input type="text" class="zip form-control" placeholder="Irányítószám">`
+  txt += `<input type="text" class="varos form-control" placeholder="Város">`
+  txt += `<input type="text" class="hazszam form-control" placeholder="Utca, házszám">`
+  txt += `<input type="text" class="emelet form-control" placeholder="Emelet, ajtó">`
   txt += "<h4>Számlázási cím</h4>";
   txt += `  <label for="cim">Ugyan az, mint a szállítási cím</label><br>
   <input type="checkbox" id="cimCheckBox" name="cim" value="cim" checked>`
   let cimCheckBox=$("#cimCheckBox")
-  txt+=`<div id="szamlazas" style="display:none"><input type="text" class="form-control" placeholder="Irányítószám">
-  <input type="text" class="form-control" placeholder="Város">
-  <input type="text" class="form-control" placeholder="Utca, házszám">
-  <input type="text" class="form-control" placeholder="Emelet, ajtó"></div>`
+  txt+=`<div id="szamlazas" style="display:none"><input type="text" class="zip2 form-control" placeholder="Irányítószám">
+  <input type="text" class="varos2 form-control" placeholder="Város">
+  <input type="text" class="utca2 form-control" placeholder="Utca, házszám">
+  <input type="text" class="emelet2 form-control" placeholder="Emelet, ajtó"></div>`
   let szamlazasDiv=$("#szamlazas")
   cimCheckBox.on("change", function(){
     if (this.checked == true){
@@ -103,7 +100,7 @@ export function adatlapOsszeallit() {
     }
   })
   txt += "</form>";
-  txt += `<h2 class="vegosszeg" >Végösszeg: ${osszeg} Ft</h2>`;
-  txt += `<button class="rendelesGomb btn btn-secondary" type="button">Rendelés leadása</button>`
+  txt += `<div class="kosarVegosszegDiv"><h2 class="vegosszegText">Végösszeg:</h2><h2 class="vegOsszeg" ></h2><h2>Ft</h2></div>`;
+  txt += `<button class="rendelesGomb btn btn-secondary" type="button" onclick="location.href='index.html';">Rendelés leadása</button>`
   return txt;
 }
