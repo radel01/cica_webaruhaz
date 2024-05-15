@@ -9,6 +9,7 @@ let articleELEM = $(".article");
 let tablazatELEM = $(".tablazat")
 let kosarLISTA=[];
 let osszeg=0;
+let uresKosarELEM=$('.uresKosar')
 
 export function megjelenit(txt, hol) {
   hol.html(txt);
@@ -67,6 +68,8 @@ export function kosarbaRakEsemeny(termekekLISTA, kosarLISTA){
   let kosarbaGombELEM=$(".kosarbaGomb")
   let darabELEM=$(".quantity")
   kosarbaGombELEM.on("click", function(event){
+    uresKosarELEM.hide();
+    tablazatELEM.show();
     let id=event.target.id.replace("k", "")
     console.log(darabELEM.value)
     kosarbaRak(termekekLISTA, kosarLISTA, id)
@@ -125,6 +128,13 @@ export function torolEsemeny(){
   torolGombELEM.on("click", function(event){
     let id=event.target.id
     torol(kosarLISTA, id)
+    if(kosarLISTA.length == 0){
+      tablazatELEM.hide();
+      uresKosarELEM.show();
+    }
     init(termekekLISTA, kosarLISTA)
+    let vegOsszegElem=$(".vegOsszeg")
+    osszeg=vegOsszeg(kosarLISTA)
+    megjelenit(osszeg, vegOsszegElem)
   });
 }
