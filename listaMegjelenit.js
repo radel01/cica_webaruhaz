@@ -2,7 +2,7 @@ import { termekekLISTA } from "./adat.js";
 import { szuresNevSzerint } from "./adatKezelo.js";
 import { listaRendez } from "./adatKezelo.js";
 import { listaRendezSzam } from "./adatKezelo.js";
-import { adatlapOsszeallit, kartyaOsszeallit, kosarOsszeallit, kosarbaRak, torol } from "./fuggvenyek.js";
+import { adatlapOsszeallit, kartyaOsszeallit, kosarOsszeallit, kosarbaRak, torol, vegOsszeg} from "./fuggvenyek.js";
 
 
 let articleELEM = $(".article");
@@ -99,22 +99,6 @@ export function vasarlasEsemeny(){
   })
 }
 
-export function vegOsszeg(lista){
-  let osszeg = 0;
-  let darab=$(".termekDarab")
-  lista.forEach(element => {
-    let darabInput=element.db;
-/*     darab.on("change", function(event){
-      let kosarId=event.target.id.replace("A", "")
-      darabInput=darab[kosarId].value;
-      if(element.db = darabInput){
-        darabInput=element.db
-      }
-    }) */
-      osszeg += parseInt(element.ar*darabInput);
-    });
-  return osszeg;
-}
 /*     let nevInputELEM=$(".nev")
     let emailInputELEM=$(".email")
     let telefonInputELEM=$(".telefon")

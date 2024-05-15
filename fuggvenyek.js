@@ -104,3 +104,20 @@ export function adatlapOsszeallit() {
   txt += `<button class="rendelesGomb btn btn-secondary" type="button" onclick="location.href='index.html';">Rendelés leadása</button>`
   return txt;
 }
+
+export function vegOsszeg(lista){
+  let osszeg = 0;
+  let darab=$(".termekDarab")
+  lista.forEach(element => {
+    let darabInput=element.db;
+/*     darab.on("change", function(event){
+      let kosarId=event.target.id.replace("A", "")
+      darabInput=darab[kosarId].value;
+      if(element.db = darabInput){
+        darabInput=element.db
+      }
+    }) */
+      osszeg += parseInt(element.ar*darabInput);
+    });
+  return osszeg;
+}
