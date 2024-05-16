@@ -126,8 +126,9 @@ export function rendelesEsemeny(){
 export function torolEsemeny(){
   let torolGombELEM=$(".torolGomb")
   torolGombELEM.on("click", function(event){
-    let id=event.target.id
-    torol(kosarLISTA, id)
+    let aktId=event.target.id
+    console.log(aktId)
+    torol(kosarLISTA, aktId)
     if(kosarLISTA.length == 0){
       tablazatELEM.hide();
       uresKosarELEM.show();

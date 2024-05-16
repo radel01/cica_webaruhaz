@@ -57,7 +57,7 @@ export function kosarOsszeallit(lista) {
       } */
     }
     txt += `<td><input type="number" id="A${index}" class="termekDarab quantity" name="quantity" min="1" max="50" class="darabInput" value="${element.db}" ></td>`;
-    txt += `<td> <button id = "${index}" type="button" class="torolGomb" ><img src="kepek/kuka.png" alt="kuka" style="width: 40px" /></button></td>`;
+    txt += `<td> <button id ="${index}" type="button" class="torolGomb" ><img src="kepek/kuka.png" alt="kuka" style="width: 40px" /></button></td>`;
     txt += `</tr>`;
   });
   txt += "</tbody></table>";
